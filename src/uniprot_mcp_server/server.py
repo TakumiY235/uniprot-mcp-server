@@ -66,8 +66,10 @@ class UniProtServer:
             return [
                 Tool(
                     name="get_protein_info",
-                    description="Get protein function and sequence information from UniProt "
-                    "using an accession number",
+                    description=(
+                        "Get protein function and sequence information from UniProt "
+                        "using an accession number"
+                    ),
                     inputSchema={
                         "type": "object",
                         "properties": {
@@ -133,13 +135,14 @@ class UniProtServer:
                             )
 
                 # Add sequence information
+                seq_info = data.get("sequence", {})
+                org_info = data.get("organism", {})
+                
                 protein_info.update(
                     {
-                        "sequence": data.get("sequence", {}).get("value", ""),
-                        "length": data.get("sequence", {}).get("length", 0),
-                        "organism": data.get("organism", {}).get(
-                            "scientificName", "Unknown"
-                        ),
+                        "sequence": seq_info.get("value", ""),
+                        "length": seq_info.get("length", 0),
+                        "organism": org_info.get("scientificName", "Unknown"),
                     }
                 )
 
