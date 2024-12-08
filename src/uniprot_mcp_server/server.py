@@ -1,13 +1,14 @@
-#!/usr/bin/env python3
-import os
+"""UniProt MCP Server implementation."""
+
 import json
 import logging
-from datetime import datetime, timedelta
 from collections import OrderedDict
-from typing import Any, Sequence
+from datetime import datetime, timedelta
+from typing import Any, Optional, Sequence
+
 import httpx
 from mcp.server import Server
-from mcp.types import Tool, TextContent, ImageContent, EmbeddedResource
+from mcp.types import Tool, TextContent
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -16,14 +17,18 @@ logger = logging.getLogger("uniprot-server")
 # API configuration
 API_BASE_URL = "https://rest.uniprot.org/uniprotkb"
 
-# Simple cache implementation
+
 class Cache:
-    def __init__(self, max_size=100, ttl_hours=24):
-        self.cache = OrderedDict()
+    """Simple cache implementation with TTL and max size limit."""
+
+    def __init__(self, max_size: int = 100, ttl_hours: int = 24) -> None:
+        """Initialize cache with size and TTL limits."""
+        self.cache: OrderedDict = OrderedDict()
         self.max_size = max_size
         self.ttl = timedelta(hours=ttl_hours)
 
-    def get(self, key):
+    def get(self, key: str) -> Optional[Any]:
+        """Get a value from cache if it exists and hasn't expired."""
         if key not in self.cache:
             return None
         item, timestamp = self.cache[key]
@@ -32,41 +37,47 @@ class Cache:
             return None
         return item
 
-    def set(self, key, value):
+    def set(self, key: str, value: Any) -> None:
+        """Set a value in cache with current timestamp."""
         if len(self.cache) >= self.max_size:
             self.cache.popitem(last=False)
         self.cache[key] = (value, datetime.now())
 
+
 class UniProtServer:
-    def __init__(self):
+    """MCP server for UniProt protein data access."""
+
+    def __init__(self) -> None:
+        """Initialize the server with cache and handlers."""
         self.server = Server("uniprot-server")
         self.cache = Cache()
         self.setup_handlers()
-        
-    def setup_handlers(self):
-        """Set up MCP protocol handlers"""
+
+    def setup_handlers(self) -> None:
+        """Set up MCP protocol handlers."""
         self.setup_tool_handlers()
 
-    def setup_tool_handlers(self):
-        """Configure tool-related request handlers"""
-        
+    def setup_tool_handlers(self) -> None:
+        """Configure tool-related request handlers."""
+
         @self.server.list_tools()
         async def list_tools() -> list[Tool]:
-            """List available UniProt tools"""
+            """List available UniProt tools."""
             return [
                 Tool(
                     name="get_protein_info",
-                    description="Get protein function and sequence information from UniProt using an accession number",
+                    description="Get protein function and sequence information from UniProt "
+                    "using an accession number",
                     inputSchema={
                         "type": "object",
                         "properties": {
                             "accession": {
                                 "type": "string",
-                                "description": "UniProt accession number (e.g., P12345)"
+                                "description": "UniProt accession number (e.g., P12345)",
                             }
                         },
-                        "required": ["accession"]
-                    }
+                        "required": ["accession"],
+                    },
                 ),
                 Tool(
                     name="get_batch_protein_info",
@@ -76,19 +87,17 @@ class UniProtServer:
                         "properties": {
                             "accessions": {
                                 "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "description": "List of UniProt accession numbers"
+                                "items": {"type": "string"},
+                                "description": "List of UniProt accession numbers",
                             }
                         },
-                        "required": ["accessions"]
-                    }
-                )
+                        "required": ["accessions"],
+                    },
+                ),
             ]
 
-        async def fetch_protein_info(accession: str) -> dict:
-            """Fetch protein information from UniProt API with caching"""
+        async def fetch_protein_info(accession: str) -> dict[str, Any]:
+            """Fetch protein information from UniProt API with caching."""
             # Check cache first
             cached_data = self.cache.get(accession)
             if cached_data:
@@ -98,8 +107,7 @@ class UniProtServer:
             logger.info(f"Fetching data for {accession}")
             async with httpx.AsyncClient() as client:
                 response = await client.get(
-                    f"{API_BASE_URL}/{accession}",
-                    headers={"Accept": "application/json"}
+                    f"{API_BASE_URL}/{accession}", headers={"Accept": "application/json"}
                 )
                 response.raise_for_status()
                 data = response.json()
@@ -107,8 +115,11 @@ class UniProtServer:
                 # Extract relevant information
                 protein_info = {
                     "accession": accession,
-                    "protein_name": data.get("proteinDescription", {}).get("recommendedName", {}).get("fullName", {}).get("value", "Unknown"),
-                    "function": []
+                    "protein_name": data.get("proteinDescription", {})
+                    .get("recommendedName", {})
+                    .get("fullName", {})
+                    .get("value", "Unknown"),
+                    "function": [],
                 }
 
                 # Extract function information safely
@@ -116,14 +127,18 @@ class UniProtServer:
                     if comment.get("commentType") == "FUNCTION":
                         texts = comment.get("texts", [])
                         if texts:
-                            protein_info["function"].extend([text.get("value", "") for text in texts])
+                            protein_info["function"].extend(
+                                [text.get("value", "") for text in texts]
+                            )
 
                 # Add sequence information
-                protein_info.update({
-                    "sequence": data.get("sequence", {}).get("value", ""),
-                    "length": data.get("sequence", {}).get("length", 0),
-                    "organism": data.get("organism", {}).get("scientificName", "Unknown")
-                })
+                protein_info.update(
+                    {
+                        "sequence": data.get("sequence", {}).get("value", ""),
+                        "length": data.get("sequence", {}).get("length", 0),
+                        "organism": data.get("organism", {}).get("scientificName", "Unknown"),
+                    }
+                )
 
                 # Cache the result
                 self.cache.set(accession, protein_info)
@@ -131,46 +146,39 @@ class UniProtServer:
 
         @self.server.call_tool()
         async def call_tool(
-            name: str,
-            arguments: dict[str, Any]
-        ) -> Sequence[TextContent | ImageContent | EmbeddedResource]:
-            """Handle tool execution requests"""
+            name: str, arguments: dict[str, Any]
+        ) -> Sequence[TextContent]:
+            """Handle tool execution requests."""
             try:
                 if name == "get_protein_info":
                     accession = arguments.get("accession")
                     if not accession:
                         raise ValueError("Accession number is required")
-                    
+
                     protein_info = await fetch_protein_info(accession)
                     return [
-                        TextContent(
-                            type="text",
-                            text=json.dumps(protein_info, indent=2)
-                        )
+                        TextContent(type="text", text=json.dumps(protein_info, indent=2))
                     ]
 
                 elif name == "get_batch_protein_info":
                     accessions = arguments.get("accessions", [])
                     if not accessions:
                         raise ValueError("At least one accession number is required")
-                    
+
                     results = []
                     for accession in accessions:
                         try:
                             protein_info = await fetch_protein_info(accession)
                             results.append(protein_info)
                         except httpx.HTTPError as e:
-                            results.append({
-                                "accession": accession,
-                                "error": f"Failed to fetch data: {str(e)}"
-                            })
-                    
-                    return [
-                        TextContent(
-                            type="text",
-                            text=json.dumps(results, indent=2)
-                        )
-                    ]
+                            results.append(
+                                {
+                                    "accession": accession,
+                                    "error": f"Failed to fetch data: {str(e)}",
+                                }
+                            )
+
+                    return [TextContent(type="text", text=json.dumps(results, indent=2))]
 
                 else:
                     raise ValueError(f"Unknown tool: {name}")
@@ -192,21 +200,25 @@ class UniProtServer:
                     )
                 ]
 
-    async def run(self):
-        """Start the server using stdio transport"""
+    async def run(self) -> None:
+        """Start the server using stdio transport."""
         from mcp.server.stdio import stdio_server
-        
+
         async with stdio_server() as (read_stream, write_stream):
             await self.server.run(
                 read_stream,
                 write_stream,
-                self.server.create_initialization_options()
+                self.server.create_initialization_options(),
             )
 
-async def main():
+
+async def main() -> None:
+    """Run the server."""
     server = UniProtServer()
     await server.run()
 
+
 if __name__ == "__main__":
     import asyncio
+
     asyncio.run(main())
