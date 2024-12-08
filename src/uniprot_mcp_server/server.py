@@ -137,7 +137,7 @@ class UniProtServer:
                 # Add sequence information
                 seq_info = data.get("sequence", {})
                 org_info = data.get("organism", {})
-                
+
                 protein_info.update(
                     {
                         "sequence": seq_info.get("value", ""),
