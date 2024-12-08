@@ -4,7 +4,7 @@ import json
 import logging
 from collections import OrderedDict
 from datetime import datetime, timedelta
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Sequence, Tuple
 
 import httpx
 from mcp.server import Server
@@ -23,7 +23,7 @@ class Cache:
 
     def __init__(self, max_size: int = 100, ttl_hours: int = 24) -> None:
         """Initialize cache with size and TTL limits."""
-        self.cache: OrderedDict = OrderedDict()
+        self.cache: OrderedDict[str, Tuple[Any, datetime]] = OrderedDict()
         self.max_size = max_size
         self.ttl = timedelta(hours=ttl_hours)
 
@@ -116,7 +116,7 @@ class UniProtServer:
                 data = response.json()
 
                 # Extract relevant information
-                protein_info = {
+                protein_info: dict[str, Any] = {
                     "accession": accession,
                     "protein_name": data.get("proteinDescription", {})
                     .get("recommendedName", {})
