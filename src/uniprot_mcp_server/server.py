@@ -75,8 +75,7 @@ class UniProtServer:
                         "properties": {
                             "accession": {
                                 "type": "string",
-                                "description": "UniProt accession number (e.g., P12345)"
-                                ,
+                                "description": "UniProt accession number (e.g., P12345)",
                             }
                         },
                         "required": ["accession"],
@@ -84,8 +83,7 @@ class UniProtServer:
                 ),
                 Tool(
                     name="get_batch_protein_info",
-                    description="Get protein information for multiple accession numbers"
-                    ,
+                    description="Get protein information for multiple accession numbers",
                     inputSchema={
                         "type": "object",
                         "properties": {
