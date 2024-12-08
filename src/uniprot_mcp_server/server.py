@@ -8,7 +8,7 @@ from typing import Any, Optional, Sequence
 
 import httpx
 from mcp.server import Server
-from mcp.types import Tool, TextContent
+from mcp.types import TextContent, Tool
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -107,7 +107,8 @@ class UniProtServer:
             logger.info(f"Fetching data for {accession}")
             async with httpx.AsyncClient() as client:
                 response = await client.get(
-                    f"{API_BASE_URL}/{accession}", headers={"Accept": "application/json"}
+                    f"{API_BASE_URL}/{accession}",
+                    headers={"Accept": "application/json"},
                 )
                 response.raise_for_status()
                 data = response.json()
@@ -136,7 +137,9 @@ class UniProtServer:
                     {
                         "sequence": data.get("sequence", {}).get("value", ""),
                         "length": data.get("sequence", {}).get("length", 0),
-                        "organism": data.get("organism", {}).get("scientificName", "Unknown"),
+                        "organism": data.get("organism", {}).get(
+                            "scientificName", "Unknown"
+                        ),
                     }
                 )
 
@@ -157,7 +160,9 @@ class UniProtServer:
 
                     protein_info = await fetch_protein_info(accession)
                     return [
-                        TextContent(type="text", text=json.dumps(protein_info, indent=2))
+                        TextContent(
+                            type="text", text=json.dumps(protein_info, indent=2)
+                        )
                     ]
 
                 elif name == "get_batch_protein_info":
@@ -178,7 +183,9 @@ class UniProtServer:
                                 }
                             )
 
-                    return [TextContent(type="text", text=json.dumps(results, indent=2))]
+                    return [
+                        TextContent(type="text", text=json.dumps(results, indent=2))
+                    ]
 
                 else:
                     raise ValueError(f"Unknown tool: {name}")

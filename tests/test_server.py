@@ -1,6 +1,7 @@
 """Tests for the UniProt MCP Server."""
 
 import pytest
+
 from uniprot_mcp_server.server import Cache, UniProtServer
 
 
