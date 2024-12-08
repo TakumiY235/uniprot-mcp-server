@@ -20,6 +20,7 @@ API_BASE_URL = "https://rest.uniprot.org/uniprotkb"
 
 class ProteinInfo(TypedDict):
     """Type definition for protein information."""
+
     accession: str
     protein_name: str
     function: list[str]
@@ -135,7 +136,7 @@ class UniProtServer:
                     "function": [],
                     "sequence": "",
                     "length": 0,
-                    "organism": "Unknown"
+                    "organism": "Unknown",
                 }
 
                 # Extract function information safely
