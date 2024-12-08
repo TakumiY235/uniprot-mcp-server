@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+# Add permissions block
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -36,9 +40,9 @@ jobs:
     - name: Commit changes if any
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git diff --exit-code || (git add . && git commit -m "Apply automatic formatting" && git push)
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git diff --quiet || (git add . && git commit -m "Apply automatic formatting" && git push)
         
     - name: Style checks
       run: |
