@@ -19,6 +19,7 @@ dev = [
     "isort",
     "flake8",
     "mypy",
+    "bandit",
 ]
 
 [build-system]
@@ -39,3 +40,7 @@ multi_line_output = 3
 [tool.mypy]
 python_version = "3.10"
 strict = true
+
+[tool.bandit]
+skips = ["B101"]
+exclude_dirs = ["tests"]
