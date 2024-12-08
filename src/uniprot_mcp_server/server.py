@@ -68,14 +68,14 @@ class UniProtServer:
                     name="get_protein_info",
                     description=(
                         "Get protein function and sequence information from UniProt "
-                        "using an accession number"
+                        "using an accession No."
                     ),
                     inputSchema={
                         "type": "object",
                         "properties": {
                             "accession": {
                                 "type": "string",
-                                "description": "UniProt accession number (e.g., P12345)",
+                                "description": "UniProt Accession No. (e.g., P12345)",
                             }
                         },
                         "required": ["accession"],
@@ -83,14 +83,14 @@ class UniProtServer:
                 ),
                 Tool(
                     name="get_batch_protein_info",
-                    description="Get protein information for multiple accession numbers",
+                    description="Get protein information for multiple accession No.",
                     inputSchema={
                         "type": "object",
                         "properties": {
                             "accessions": {
                                 "type": "array",
                                 "items": {"type": "string"},
-                                "description": "List of UniProt accession numbers",
+                                "description": "List of UniProt accession No.",
                             }
                         },
                         "required": ["accessions"],
@@ -159,7 +159,7 @@ class UniProtServer:
                 if name == "get_protein_info":
                     accession = arguments.get("accession")
                     if not accession:
-                        raise ValueError("Accession number is required")
+                        raise ValueError("Accession No. is required")
 
                     protein_info = await fetch_protein_info(accession)
                     return [
@@ -171,7 +171,7 @@ class UniProtServer:
                 elif name == "get_batch_protein_info":
                     accessions = arguments.get("accessions", [])
                     if not accessions:
-                        raise ValueError("At least one accession number is required")
+                        raise ValueError("At least one accession No. is required")
 
                     results = []
                     for accession in accessions:
