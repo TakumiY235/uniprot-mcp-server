@@ -1,0 +1,31 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files
+*.py text diff=python
+*.pyw text diff=python
+
+# Documentation
+*.md text diff=markdown
+*.txt text
+*.rst text
+*.json text
+
+# Config files
+*.toml text
+*.yaml text
+*.yml text
+*.cfg text
+*.ini text
+.flake8 text
+
+# Git config
+.gitattributes text
+.gitignore text
+.gitconfig text
+
+# Lock files
+*.lock text
+
+# Make sure shell scripts use LF
+*.sh text eol=lf
