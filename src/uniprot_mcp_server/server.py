@@ -4,7 +4,7 @@ import json
 import logging
 from collections import OrderedDict
 from datetime import datetime, timedelta
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Sequence, Tuple, TypedDict
 
 import httpx
 from mcp.server import Server
@@ -16,6 +16,16 @@ logger = logging.getLogger("uniprot-server")
 
 # API configuration
 API_BASE_URL = "https://rest.uniprot.org/uniprotkb"
+
+
+class ProteinInfo(TypedDict):
+    """Type definition for protein information."""
+    accession: str
+    protein_name: str
+    function: list[str]
+    sequence: str
+    length: int
+    organism: str
 
 
 class Cache:
@@ -98,7 +108,7 @@ class UniProtServer:
                 ),
             ]
 
-        async def fetch_protein_info(accession: str) -> dict[str, Any]:
+        async def fetch_protein_info(accession: str) -> ProteinInfo:
             """Fetch protein information from UniProt API with caching."""
             # Check cache first
             cached_data = self.cache.get(accession)
@@ -116,13 +126,16 @@ class UniProtServer:
                 data = response.json()
 
                 # Extract relevant information
-                protein_info: dict[str, Any] = {
+                protein_info: ProteinInfo = {
                     "accession": accession,
                     "protein_name": data.get("proteinDescription", {})
                     .get("recommendedName", {})
                     .get("fullName", {})
                     .get("value", "Unknown"),
                     "function": [],
+                    "sequence": "",
+                    "length": 0,
+                    "organism": "Unknown"
                 }
 
                 # Extract function information safely
