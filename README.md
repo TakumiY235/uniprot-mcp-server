@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server that provides access to UniProt protein information. This server allows AI assistants to fetch protein function and sequence information directly from UniProt.
 
+<a href="https://glama.ai/mcp/servers/ttjbai3lpx">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/ttjbai3lpx/badge" alt="UniProt Server MCP server" />
+</a>
+
 ## Features
 
 - Get protein information by UniProt accession number
