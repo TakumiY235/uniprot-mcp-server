@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/takumiy235-uniprot-mcp-server-badge.png)](https://mseep.ai/app/takumiy235-uniprot-mcp-server)
+
 # UniProt MCP Server
 
 A Model Context Protocol (MCP) server that provides access to UniProt protein information. This server allows AI assistants to fetch protein function and sequence information directly from UniProt.
