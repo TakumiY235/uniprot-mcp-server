@@ -1,0 +1,1670 @@
+{
+ "comments": [
+  {
+   "commentType": "FUNCTION",
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P04055",
+       "source": "UniProtKB"
+      },
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "Q9Z0Y2",
+       "source": "UniProtKB"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "10681567",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "1420353",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "17603006",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "25335547",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "7721806",
+       "source": "PubMed"
+      }
+     ],
+     "value": "Secretory calcium-dependent phospholipase A2 that primarily targets dietary phospholipids in the intestinal tract (PubMed:10681567, PubMed:1420353, PubMed:17603006). Hydrolyzes the ester bond of the fatty acyl group attached at sn-2 position of phospholipids (phospholipase A2 activity) with preference for phosphatidylethanolamines and phosphatidylglycerols over phosphatidylcholines (PubMed:10681567, PubMed:1420353, PubMed:17603006). May play a role in the biosynthesis of N-acyl ethanolamines that regulate energy metabolism and inflammation in the intestinal tract. Hydrolyzes N-acyl phosphatidylethanolamines to N-acyl lysophosphatidylethanolamines, which are further cleaved by a lysophospholipase D to release N-acyl ethanolamines (By similarity). May act in an autocrine and paracrine manner (PubMed:25335547, PubMed:7721806). Upon binding to the PLA2R1 receptor can regulate podocyte survival and glomerular homeostasis (PubMed:25335547). Has anti-helminth activity in a process regulated by gut microbiota. Upon helminth infection of intestinal epithelia, directly affects phosphatidylethanolamine contents in the membrane of helminth larvae, likely controlling an array of phospholipid-mediated cellular processes such as membrane fusion and cell division while providing for better immune recognition, ultimately reducing larvae integrity and infectivity (By similarity)"
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "ecNumber": "3.1.1.4",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000255",
+      "id": "PRU10035",
+      "source": "PROSITE-ProRule"
+     },
+     {
+      "evidenceCode": "ECO:0000255",
+      "id": "PRU10036",
+      "source": "PROSITE-ProRule"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "id": "10681567",
+      "source": "PubMed"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "id": "17603006",
+      "source": "PubMed"
+     }
+    ],
+    "name": "a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = a 1-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:15801"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:28868"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57643"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:58168"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "id": "17603006",
+      "source": "PubMed"
+     }
+    ],
+    "name": "1,2-ditetradecanoyl-sn-glycero-3-phosphocholine + H2O = 1-tetradecanoyl-sn-glycero-3-phosphocholine + tetradecanoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:54456"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30807"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:45240"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:64489"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P04055",
+       "source": "UniProtKB"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:41224"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "id": "P04055",
+      "source": "UniProtKB"
+     }
+    ],
+    "name": "1,2-dihexadecanoyl-sn-glycero-3-phosphocholine + H2O = 1-hexadecanoyl-sn-glycero-3-phosphocholine + hexadecanoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:41223"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:7896"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:72998"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:72999"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "id": "10681567",
+       "source": "PubMed"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:38780"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "id": "10681567",
+      "source": "PubMed"
+     }
+    ],
+    "name": "1-hexadecanoyl-2-(9Z-octadecenoyl)-sn-glycero-3-phosphocholine + H2O = 1-hexadecanoyl-sn-glycero-3-phosphocholine + (9Z)-octadecenoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:38779"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30823"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:72998"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:73001"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P04055",
+       "source": "UniProtKB"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:40428"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "id": "P04055",
+      "source": "UniProtKB"
+     }
+    ],
+    "name": "1-hexadecanoyl-2-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-sn-glycero-3-phosphocholine + H2O = 1-hexadecanoyl-sn-glycero-3-phosphocholine + (5Z,8Z,11Z,14Z)-eicosatetraenoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:40427"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:32395"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:72998"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:73003"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305",
+       "id": "1420353",
+       "source": "PubMed"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:40920"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "id": "1420353",
+      "source": "PubMed"
+     }
+    ],
+    "name": "1-hexadecanoyl-2-(9Z-octadecenoyl)-sn-glycero-3-phospho-(1'-sn-glycerol) + H2O = 1-hexadecanoyl-sn-glycero-3-phospho-(1'-sn-glycerol) + (9Z)-octadecenoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:40919"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30823"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:72841"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:75158"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P04055",
+       "source": "UniProtKB"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:45425"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "id": "P04055",
+      "source": "UniProtKB"
+     }
+    ],
+    "name": "N-hexadecanoyl-1,2-di-(9Z-octadecenoyl)-sn-glycero-3-phosphoethanolamine + H2O = N-hexadecanoyl-1-(9Z-octadecenoyl)-sn-glycero-3-phosphoethanolamine + (9Z)-octadecenoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:45424"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30823"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:78097"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:85217"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P04055",
+       "source": "UniProtKB"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:40816"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "id": "P04055",
+      "source": "UniProtKB"
+     }
+    ],
+    "name": "1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphoethanolamine + H2O = 1-hexadecanoyl-sn-glycero-3-phosphoethanolamine + (9Z,12Z)-octadecadienoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:40815"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30245"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:73004"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:73008"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P04055",
+       "source": "UniProtKB"
+      }
+     ],
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:56425"
+     }
+    }
+   ],
+   "reaction": {
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000250",
+      "id": "P04055",
+      "source": "UniProtKB"
+     }
+    ],
+    "name": "N,1-dihexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphoethanolamine + H2O = N,1-dihexadecanoyl-sn-glycero-3-phosphoethanolamine + (9Z,12Z)-octadecadienoate + H(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:56424"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15378"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30245"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:85334"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:85335"
+     }
+    ]
+   }
+  },
+  {
+   "cofactors": [
+    {
+     "cofactorCrossReference": {
+      "database": "ChEBI",
+      "id": "CHEBI:29108"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250",
+       "id": "P00593",
+       "source": "UniProtKB"
+      }
+     ],
+     "name": "Ca(2+)"
+    }
+   ],
+   "commentType": "COFACTOR",
+   "note": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000250",
+        "id": "P00593",
+        "source": "UniProtKB"
+       }
+      ],
+      "value": "Binds 1 Ca(2+) ion per subunit."
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "ACTIVITY REGULATION",
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "17603006",
+       "source": "PubMed"
+      }
+     ],
+     "value": "Regulated by bile acid salts. Up-regulated by cholate and down-regulated by taurochenodeoxycholate. Cholate-activated rate of hydrolysis is lowered by hypolipidemic drug ezetimibe"
+    }
+   ]
+  },
+  {
+   "commentType": "SUBUNIT",
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "19297324",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "7721806",
+       "source": "PubMed"
+      }
+     ],
+     "value": "The inactive pro-form is a homotrimer (PubMed:19297324). When anchored into the cell membrane, the inactive homotrimer is likely cleaved either by trypsin or by itself, producing an active trimer. The resulting conformational changes are thought to open up a center hole forming a channel for substrate entry (PubMed:19297324). Interacts with PLA2R1; this interaction mediates intracellular signaling as well as clearance of extracellular PLA2G1B via endocytotic pathway (PubMed:7721806)"
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "value": "Secreted from pancreatic acinar cells in its inactive form"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "id": "19297324",
+        "source": "PubMed"
+       }
+      ],
+      "id": "SL-0243",
+      "value": "Secreted"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "TISSUE SPECIFICITY",
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "10681567",
+       "source": "PubMed"
+      }
+     ],
+     "value": "Selectively expressed in pancreas, lung, liver and kidney. Also detected at lower levels in ovary and testis"
+    }
+   ]
+  },
+  {
+   "commentType": "PTM",
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "19297324",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "6349696",
+       "source": "PubMed"
+      }
+     ],
+     "value": "Activated by trypsin cleavage in the duodenum. Can also be activated by thrombin or autocatalytically"
+    }
+   ]
+  },
+  {
+   "commentType": "SIMILARITY",
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the phospholipase A2 family"
+    }
+   ]
+  }
+ ],
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "features": [
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "7060561",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 15
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 1
+    }
+   },
+   "type": "Signal"
+  },
+  {
+   "description": "Activation peptide",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "6349696",
+     "source": "PubMed"
+    }
+   ],
+   "featureId": "PRO_0000022739",
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 22
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 16
+    }
+   },
+   "type": "Propeptide"
+  },
+  {
+   "description": "Phospholipase A2",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "3028739",
+     "source": "PubMed"
+    }
+   ],
+   "featureId": "PRO_0000022740",
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 148
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 23
+    }
+   },
+   "type": "Chain"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "id": "P00593",
+     "source": "UniProtKB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 70
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 70
+    }
+   },
+   "type": "Active site"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "id": "P00593",
+     "source": "UniProtKB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 121
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 121
+    }
+   },
+   "type": "Active site"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "id": "P00593",
+     "source": "UniProtKB"
+    }
+   ],
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "ligand": {
+    "id": "ChEBI:CHEBI:29108",
+    "name": "Ca(2+)"
+   },
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 50
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 50
+    }
+   },
+   "type": "Binding site"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "id": "P00593",
+     "source": "UniProtKB"
+    }
+   ],
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "ligand": {
+    "id": "ChEBI:CHEBI:29108",
+    "name": "Ca(2+)"
+   },
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 52
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 52
+    }
+   },
+   "type": "Binding site"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "id": "P00593",
+     "source": "UniProtKB"
+    }
+   ],
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "ligand": {
+    "id": "ChEBI:CHEBI:29108",
+    "name": "Ca(2+)"
+   },
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 54
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 54
+    }
+   },
+   "type": "Binding site"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250",
+     "id": "P00593",
+     "source": "UniProtKB"
+    }
+   ],
+   "featureCrossReferences": [
+    {
+     "database": "ChEBI",
+     "id": "CHEBI:29108"
+    }
+   ],
+   "ligand": {
+    "id": "ChEBI:CHEBI:29108",
+    "name": "Ca(2+)"
+   },
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 71
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 71
+    }
+   },
+   "type": "Binding site"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 99
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 33
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 146
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 49
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 67
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 51
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 127
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 66
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 120
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 73
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 113
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 83
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "id": "19297324",
+     "source": "PubMed"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 118
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 106
+    }
+   },
+   "type": "Disulfide bond"
+  },
+  {
+   "alternativeSequence": {
+    "alternativeSequences": [
+     "A"
+    ],
+    "originalSequence": "D"
+   },
+   "description": "in dbSNP:rs5632",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5632"
+    }
+   ],
+   "featureId": "VAR_011911",
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 16
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 16
+    }
+   },
+   "type": "Natural variant"
+  },
+  {
+   "alternativeSequence": {
+    "alternativeSequences": [
+     "K"
+    ],
+    "originalSequence": "N"
+   },
+   "description": "in dbSNP:rs5636",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5636"
+    }
+   ],
+   "featureId": "VAR_011913",
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 89
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 89
+    }
+   },
+   "type": "Natural variant"
+  },
+  {
+   "alternativeSequence": {
+    "alternativeSequences": [
+     "T"
+    ],
+    "originalSequence": "N"
+   },
+   "description": "in dbSNP:rs5635",
+   "featureCrossReferences": [
+    {
+     "database": "dbSNP",
+     "id": "rs5635"
+    }
+   ],
+   "featureId": "VAR_011912",
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 89
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 89
+    }
+   },
+   "type": "Natural variant"
+  },
+  {
+   "alternativeSequence": {},
+   "description": "in Ref. 8; AA sequence",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 144
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 144
+    }
+   },
+   "type": "Sequence conflict"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 23
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 21
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 30
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 25
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 33
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 31
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 44
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 40
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 47
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 45
+    }
+   },
+   "type": "Beta strand"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 50
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 48
+    }
+   },
+   "type": "Turn"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 54
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 51
+    }
+   },
+   "type": "Beta strand"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 77
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 62
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 83
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 81
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 87
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 84
+    }
+   },
+   "type": "Turn"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "6Q42",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 92
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 90
+    }
+   },
+   "type": "Turn"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 100
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 97
+    }
+   },
+   "type": "Beta strand"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 106
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 103
+    }
+   },
+   "type": "Beta strand"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 130
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 112
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 137
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 135
+    }
+   },
+   "type": "Helix"
+  },
+  {
+   "description": "",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0007829",
+     "id": "3ELO",
+     "source": "PDB"
+    }
+   ],
+   "location": {
+    "end": {
+     "modifier": "EXACT",
+     "value": 145
+    },
+    "start": {
+     "modifier": "EXACT",
+     "value": 142
+    }
+   },
+   "type": "Helix"
+  }
+ ],
+ "genes": [
+  {
+   "geneName": {
+    "value": "PLA2G1B"
+   },
+   "synonyms": [
+    {
+     "value": "PLA2"
+    },
+    {
+     "value": "PLA2A"
+    },
+    {
+     "value": "PPLA2"
+    }
+   ]
+  }
+ ],
+ "organism": {
+  "commonName": "Human",
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ],
+  "scientificName": "Homo sapiens",
+  "taxonId": 9606
+ },
+ "primaryAccession": "P04054",
+ "proteinDescription": {
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Group IB phospholipase A2"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Phosphatidylcholine 2-acylhydrolase 1B"
+    }
+   }
+  ],
+  "flag": "Precursor",
+  "recommendedName": {
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "10681567",
+       "source": "PubMed"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "id": "17603006",
+       "source": "PubMed"
+      }
+     ],
+     "value": "3.1.1.4"
+    }
+   ],
+   "fullName": {
+    "value": "Phospholipase A2"
+   }
+  }
+ },
+ "sequence": {
+  "crc64": "C8E38B2B64AEE8CB",
+  "length": 148,
+  "md5": "25B54858C482D3AC24949E6E0A67B15F",
+  "molWeight": 16360,
+  "value": "MKLLVLAVLLTVAAADSGISPRAVWQFRKMIKCVIPGSDPFLEYNNYGCYCGLGGSGTPVDELDKCCQTHDNCYDQAKKLDSCKFLLDNPYTHTYSYSCSGSAITCSSKNKECEAFICNCDRNAAICFSKAPYNKAHKNLDTKKYCQS"
+ },
+ "uniProtKBCrossReferences": [
+  {
+   "database": "PDB",
+   "id": "3ELO",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "1.55 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A=16-148"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "6Q42",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "1.90 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/B=23-148"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P04054",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR001211",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PLA2"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR016090",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PLA2-like_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR033112",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PLA2_Asp_AS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR033113",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PLA2_histidine"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036444",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "PLipase_A2_dom_sf"
+    }
+   ]
+  }
+ ],
+ "uniProtkbId": "PA21B_HUMAN"
+}

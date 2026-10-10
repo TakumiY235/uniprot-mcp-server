@@ -10,16 +10,18 @@ A Model Context Protocol (MCP) server that provides access to UniProt protein in
 
 ## Features
 
+- Search UniProtKB by protein name, gene name or keyword when the accession
+  number is not known yet
 - Get protein information by UniProt accession number
 - Batch retrieval of multiple proteins
-- Caching for improved performance (24-hour TTL)
+- Get annotated sequence features with their positions: signal peptide,
+  propeptide, mature chain, active and binding sites, disulfide bonds, domains,
+  glycosylation, natural variants and mutagenesis
+- Get the available structures: PDB entries with method, resolution and covered
+  residue ranges, plus the AlphaFold DB model
+- Caching for improved performance (24-hour TTL), shared across the tools that
+  read the same entry
 - Error handling and logging
-- Information includes:
-  - Protein name
-  - Function description
-  - Full sequence
-  - Sequence length
-  - Organism
 
 ## Requirements
 
@@ -83,6 +85,26 @@ For batch queries:
 Can you get and compare the protein information for both P04637 and P02747?
 ```
 
+When you do not have an accession number to hand:
+
+```
+Find the reviewed human phospholipase A2 entries and show me their lengths.
+```
+
+Before designing a construct or a variant panel, to get the boundaries and the
+residues that have to be respected:
+
+```
+What are the signal peptide, propeptide and mature chain boundaries of P04054,
+and where are its active sites and disulfide bonds?
+```
+
+To find a structure to work from:
+
+```
+Which PDB structures cover P04054, and at what resolution?
+```
+
 ## API Reference
 
 ### Tools
@@ -106,6 +128,87 @@ Can you get and compare the protein information for both P04637 and P02747?
    - Get information for multiple proteins
    - Required parameter: `accessions` (array of UniProt accession numbers)
    - Returns an array of protein information objects
+   - A lookup that fails is reported per accession, so one bad entry does not
+     lose the rest of the batch
+
+3. `search_proteins`
+   - Find entries when the accession number is not known yet
+   - Required parameter: `query` (search terms; UniProt query syntax is accepted,
+     e.g. `gene:PLA2G1B`)
+   - Optional: `organism_id` (NCBI taxonomy ID, e.g. `9606` for human),
+     `reviewed_only` (default `true`, Swiss-Prot only), `limit` (1-50,
+     default 10)
+   - Sequences are not included, so a result list stays small
+   - Example response:
+     ```json
+     {
+       "count": 1,
+       "results": [
+         {
+           "accession": "P04054",
+           "entry_name": "PA2GA_HUMAN",
+           "protein_name": "Phospholipase A2",
+           "gene_names": ["PLA2G1B"],
+           "organism": "Homo sapiens",
+           "taxon_id": 9606,
+           "length": 148,
+           "reviewed": true
+         }
+       ]
+     }
+     ```
+
+4. `get_protein_features`
+   - Get the annotated sequence features with 1-based inclusive positions
+   - Required parameter: `accession`
+   - Optional: `types` (keep only these feature types, matched
+     case-insensitively, e.g. `["Active site", "Disulfide bond"]`),
+     `include_secondary_structure` (default `false`)
+   - Secondary structure (`Helix`, `Beta strand`, `Turn`) is reported per
+     element, so an entry carries dozens of them and they say nothing a
+     sequence-design decision needs. They are withheld unless
+     `include_secondary_structure` is set or they are named in `types`.
+   - Example response:
+     ```json
+     {
+       "accession": "P04054",
+       "length": 148,
+       "feature_counts": {"Signal": 1, "Propeptide": 1, "Chain": 1,
+                          "Active site": 2, "Disulfide bond": 7},
+       "features": [
+         {"type": "Signal", "start": 1, "end": 15, "description": ""},
+         {"type": "Propeptide", "start": 16, "end": 22,
+          "description": "Activation peptide"},
+         {"type": "Chain", "start": 23, "end": 148,
+          "description": "Phospholipase A2"}
+       ]
+     }
+     ```
+   - Features are ordered by position. A feature whose position UniProt leaves
+     unset reports `null` and sorts last.
+
+5. `get_protein_structures`
+   - Get the structures available for a protein
+   - Required parameter: `accession`
+   - Example response:
+     ```json
+     {
+       "accession": "P04054",
+       "pdb_entries": [
+         {"pdb_id": "3ELO", "method": "X-ray", "resolution": "1.55 A",
+          "chains": "A=16-148"},
+         {"pdb_id": "6Q42", "method": "X-ray", "resolution": "1.90 A",
+          "chains": "A/B=23-148"}
+       ],
+       "alphafold_id": "P04054"
+     }
+     ```
+   - A protein with no solved structure reports an empty list and a null
+     `alphafold_id` rather than an error
+
+`get_protein_info`, `get_protein_features` and `get_protein_structures` read
+different parts of the same UniProt entry, so they share one cached request per
+accession: asking for all three costs a single round trip.
 
 ## Development
 
