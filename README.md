@@ -21,6 +21,18 @@ A Model Context Protocol (MCP) server that provides access to UniProt protein in
   - Sequence length
   - Organism
 
+## Requirements
+
+- Python 3.10 or higher
+- MCP Python SDK **1.x** (`mcp>=1.1,<2`)
+
+> The MCP SDK's 2.0 release removed the `@server.list_tools()` / `@server.call_tool()`
+> decorators from the low-level `Server` class that this project is built on. Installed
+> against `mcp` 2.x, the server raises
+> `AttributeError: 'Server' object has no attribute 'list_tools'` at startup, so the
+> dependency is pinned to the 1.x line. Migrating to the 2.x server API is tracked
+> separately.
+
 ## Quick Start
 
 1. Ensure you have Python 3.10 or higher installed
@@ -124,7 +136,7 @@ This project uses:
 - flake8 for linting
 - mypy for type checking
 - bandit for security checks
-- safety for dependency vulnerability checks
+- pip-audit for dependency vulnerability checks
 
 Run all checks:
 ```bash
@@ -133,7 +145,7 @@ isort .
 flake8 .
 mypy .
 bandit -r src/
-safety check
+pip-audit .
 ```
 
 ## Technical Details
@@ -141,15 +153,17 @@ safety check
 - Built using the MCP Python SDK
 - Uses httpx for async HTTP requests
 - Implements caching with 24-hour TTL using an OrderedDict-based cache
-- Handles rate limiting and retries
+- Bounds every UniProt request with a timeout (10s connect, 30s total)
+- Surfaces UniProt API errors - including 429 rate limiting - as tool errors;
+  there is no automatic retry or backoff
 - Provides detailed error messages
 
 ### Error Handling
 
 The server handles various error scenarios:
-- Invalid accession numbers (404 responses)
+- Invalid accession numbers (UniProt answers with 400, not 404)
 - API connection issues (network errors)
-- Rate limiting (429 responses)
+- Rate limiting (429 responses) - reported to the caller, not retried
 - Malformed responses (JSON parsing errors)
 - Cache management (TTL and size limits)
 
