@@ -136,7 +136,7 @@ This project uses:
 - flake8 for linting
 - mypy for type checking
 - bandit for security checks
-- safety for dependency vulnerability checks
+- pip-audit for dependency vulnerability checks
 
 Run all checks:
 ```bash
@@ -145,7 +145,7 @@ isort .
 flake8 .
 mypy .
 bandit -r src/
-safety check
+pip-audit .
 ```
 
 ## Technical Details

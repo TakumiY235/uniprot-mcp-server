@@ -20,7 +20,7 @@ dev = [
     "flake8",
     "mypy",
     "bandit",
-    "safety",
+    "pip-audit",
 ]
 
 [build-system]
