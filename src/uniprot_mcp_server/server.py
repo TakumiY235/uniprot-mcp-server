@@ -4,7 +4,7 @@ import json
 import logging
 from collections import OrderedDict
 from datetime import datetime, timedelta
-from typing import Any, Optional, Sequence, Tuple, TypedDict
+from typing import Any, Optional, Sequence, Tuple, TypedDict, Union
 
 import httpx
 from mcp.server import Server
@@ -16,6 +16,9 @@ logger = logging.getLogger("uniprot-server")
 
 # API configuration
 API_BASE_URL = "https://rest.uniprot.org/uniprotkb"
+# Bound every request so an unresponsive UniProt endpoint cannot hang the
+# server indefinitely: 10s to connect, 30s overall.
+REQUEST_TIMEOUT = httpx.Timeout(30.0, connect=10.0)
 
 
 class ProteinInfo(TypedDict):
@@ -112,13 +115,13 @@ class UniProtServer:
         async def fetch_protein_info(accession: str) -> ProteinInfo:
             """Fetch protein information from UniProt API with caching."""
             # Check cache first
-            cached_data = self.cache.get(accession)
-            if cached_data:
+            cached_data: Optional[ProteinInfo] = self.cache.get(accession)
+            if cached_data is not None:
                 logger.info(f"Cache hit for {accession}")
                 return cached_data
 
             logger.info(f"Fetching data for {accession}")
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(timeout=REQUEST_TIMEOUT) as client:
                 response = await client.get(
                     f"{API_BASE_URL}/{accession}",
                     headers={"Accept": "application/json"},
@@ -187,7 +190,7 @@ class UniProtServer:
                     if not accessions:
                         raise ValueError("At least one accession No. is required")
 
-                    results = []
+                    results: list[Union[ProteinInfo, dict[str, str]]] = []
                     for accession in accessions:
                         try:
                             protein_info = await fetch_protein_info(accession)
@@ -215,6 +218,9 @@ class UniProtServer:
                         text=f"Error fetching protein information: {str(e)}",
                     )
                 ]
+            except ValueError as e:
+                logger.error(f"Invalid request: {str(e)}")
+                return [TextContent(type="text", text=f"Invalid request: {str(e)}")]
             except Exception as e:
                 logger.error(f"Unexpected error: {str(e)}")
                 return [
